@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<style>
+    body {
+
+        background-image: url('{% static "images/adc.png" %}');
+        background-size: 100% 90%; /* Ensure the image covers the entire background */
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: brightness(1.2);
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        width: 60%;
+    }
+
+    h2, h3 {
+        color: #008cff;
+    }
+</style>
+<center>
+<div id="formContainer">
+    <form method="post" action="{% url 'otp' %}">
+        {% csrf_token %}
+        <h2>Enter Name and Email</h2>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name1" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+</div>
+</center>
+<script>
+    document.getElementById("userInfoForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Hide user info form
+        document.getElementById("userInfoForm").style.display = "none";
+        // Display OTP section
+        document.getElementById("otpSection").style.display = "block";
+    });
+</script>
+{% endblock %}

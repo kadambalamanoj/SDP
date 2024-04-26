@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Options</title>
+</head>
+<body>
+
+<h2>Login Options:</h2>
+<ol>
+  <li><strong>Admin Login</strong></li>
+  <li><strong>Faculty Login</strong></li>
+  <li><strong>Student Login</strong></li>
+  <li><strong>Login via OTP</strong></li>
+</ol>
+
+<h3>Admin:</h3>
+<ul>
+  <li>The admin can add students, faculty, and courses. When adding students and faculty, it can accept photos.</li>
+  <li>The admin can perform operations such as delete, update, and view on students, faculty, and courses.</li>
+  <li>The admin can update their passwords and also map courses to faculty. To map a course, the admin must first add the course.</li>
+</ul>
+
+<h3>Faculty:</h3>
+<ul>
+  <li>Faculty members can change their passwords, view their courses, and upload course content.</li>
+  <li>When uploading course content, they can provide web links and images.</li>
+</ul>
+
+<h3>Student:</h3>
+<ul>
+  <li>Students can change their passwords and view their  courses along with the course content.</li>
+</ul>
+
+</body>
+</html>
+
+
+{% endblock %}

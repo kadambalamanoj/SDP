@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<h2 align="center">{{message}}</h2>
+<style>
+    body {
+
+        background-image: url('{% static "images/adc.png" %}');
+        background-size: 100% 90%; /* Ensure the image covers the entire background */
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: brightness(1.2);
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        width: 60%;
+    }
+
+    h2, h3 {
+        color: #008cff;
+    }
+</style>
+<center>
+<div class="centered-content">
+    <div>
+        <p>Verify OTP here</p>
+        <form method="post" action="{% url 'vo' %}" id="otpForm">
+            {% csrf_token %}
+            <h2>Enter Name, Email, and OTP</h2>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name1" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="otp">OTP:</label><br>
+            <input type="text" id="otp" name="otp" required><br><br>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+    </div>
+</div>
+    </center>
+{% endblock %}
